@@ -1,0 +1,45 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "rid": "RID-DRONE-001",
+    "description": "Test flight without altitude data"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.404, 37.806]
+      },
+      "properties": {
+        "timestamp": 0,
+        "speed_meters_per_second": 0.0,
+        "heading_degrees": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.405, 37.807]
+      },
+      "properties": {
+        "timestamp": 5,
+        "speed_meters_per_second": 10.0,
+        "heading_degrees": 90.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.406, 37.808]
+      },
+      "properties": {
+        "timestamp": 10,
+        "speed_meters_per_second": 15.0,
+        "heading_degrees": 180.0
+      }
+    }
+  ]
+}

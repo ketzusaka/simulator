@@ -1,0 +1,57 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "rid": "RID-DRONE-001",
+    "description": "Simple 30-second flight pattern"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.404, 37.806, 100.0]
+      },
+      "properties": {
+        "timestamp": 0,
+        "speed_meters_per_second": 0.0,
+        "heading_degrees": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.405, 37.807, 105.0]
+      },
+      "properties": {
+        "timestamp": 10,
+        "speed_meters_per_second": 15.0,
+        "heading_degrees": 90.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.406, 37.808, 110.0]
+      },
+      "properties": {
+        "timestamp": 20,
+        "speed_meters_per_second": 20.0,
+        "heading_degrees": 180.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.407, 37.809, 115.0]
+      },
+      "properties": {
+        "timestamp": 30,
+        "speed_meters_per_second": 25.0,
+        "heading_degrees": 270.0
+      }
+    }
+  ]
+}

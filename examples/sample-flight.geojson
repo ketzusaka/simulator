@@ -1,0 +1,453 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "rid": "RID-DRONE-001",
+    "description": "Sample flight path around San Francisco Bay"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.404, 37.806, 95.2]
+      },
+      "properties": {
+        "timestamp": 0,
+        "speed_meters_per_second": 0.0,
+        "heading_degrees": 0.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.405, 37.807, 100.0]
+      },
+      "properties": {
+        "timestamp": 5,
+        "speed_meters_per_second": 11.9,
+        "heading_degrees": 210.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.406, 37.808, 105.5]
+      },
+      "properties": {
+        "timestamp": 10,
+        "speed_meters_per_second": 15.2,
+        "heading_degrees": 225.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.407, 37.809, 110.0]
+      },
+      "properties": {
+        "timestamp": 15,
+        "speed_meters_per_second": 18.5,
+        "heading_degrees": 240.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.408, 37.810, 115.2]
+      },
+      "properties": {
+        "timestamp": 20,
+        "speed_meters_per_second": 20.1,
+        "heading_degrees": 255.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.409, 37.811, 120.0]
+      },
+      "properties": {
+        "timestamp": 25,
+        "speed_meters_per_second": 22.3,
+        "heading_degrees": 270.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.410, 37.812, 125.5]
+      },
+      "properties": {
+        "timestamp": 30,
+        "speed_meters_per_second": 25.0,
+        "heading_degrees": 285.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.411, 37.813, 130.0]
+      },
+      "properties": {
+        "timestamp": 35,
+        "speed_meters_per_second": 27.5,
+        "heading_degrees": 300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.412, 37.814, 135.2]
+      },
+      "properties": {
+        "timestamp": 40,
+        "speed_meters_per_second": 30.0,
+        "heading_degrees": 315.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.413, 37.815, 140.0]
+      },
+      "properties": {
+        "timestamp": 45,
+        "speed_meters_per_second": 32.1,
+        "heading_degrees": 330.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.414, 37.816, 145.5]
+      },
+      "properties": {
+        "timestamp": 50,
+        "speed_meters_per_second": 35.0,
+        "heading_degrees": 345.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.415, 37.817, 150.0]
+      },
+      "properties": {
+        "timestamp": 55,
+        "speed_meters_per_second": 37.5,
+        "heading_degrees": 360.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.416, 37.818, 155.2]
+      },
+      "properties": {
+        "timestamp": 60,
+        "speed_meters_per_second": 40.0,
+        "heading_degrees": 15.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.417, 37.819, 160.0]
+      },
+      "properties": {
+        "timestamp": 65,
+        "speed_meters_per_second": 42.3,
+        "heading_degrees": 30.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.418, 37.820, 165.5]
+      },
+      "properties": {
+        "timestamp": 70,
+        "speed_meters_per_second": 45.0,
+        "heading_degrees": 45.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.419, 37.821, 170.0]
+      },
+      "properties": {
+        "timestamp": 75,
+        "speed_meters_per_second": 47.5,
+        "heading_degrees": 60.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.420, 37.822, 175.2]
+      },
+      "properties": {
+        "timestamp": 80,
+        "speed_meters_per_second": 50.0,
+        "heading_degrees": 75.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.421, 37.823, 180.0]
+      },
+      "properties": {
+        "timestamp": 85,
+        "speed_meters_per_second": 52.1,
+        "heading_degrees": 90.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.422, 37.824, 185.5]
+      },
+      "properties": {
+        "timestamp": 90,
+        "speed_meters_per_second": 55.0,
+        "heading_degrees": 105.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.423, 37.825, 190.0]
+      },
+      "properties": {
+        "timestamp": 95,
+        "speed_meters_per_second": 57.5,
+        "heading_degrees": 120.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.424, 37.826, 195.2]
+      },
+      "properties": {
+        "timestamp": 100,
+        "speed_meters_per_second": 60.0,
+        "heading_degrees": 135.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.425, 37.827, 200.0]
+      },
+      "properties": {
+        "timestamp": 105,
+        "speed_meters_per_second": 62.3,
+        "heading_degrees": 150.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.426, 37.828, 205.5]
+      },
+      "properties": {
+        "timestamp": 110,
+        "speed_meters_per_second": 65.0,
+        "heading_degrees": 165.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.427, 37.829, 210.0]
+      },
+      "properties": {
+        "timestamp": 115,
+        "speed_meters_per_second": 67.5,
+        "heading_degrees": 180.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.428, 37.830, 215.2]
+      },
+      "properties": {
+        "timestamp": 120,
+        "speed_meters_per_second": 70.0,
+        "heading_degrees": 195.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.429, 37.831, 220.0]
+      },
+      "properties": {
+        "timestamp": 125,
+        "speed_meters_per_second": 72.1,
+        "heading_degrees": 210.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.430, 37.832, 225.5]
+      },
+      "properties": {
+        "timestamp": 130,
+        "speed_meters_per_second": 75.0,
+        "heading_degrees": 225.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.431, 37.833, 230.0]
+      },
+      "properties": {
+        "timestamp": 135,
+        "speed_meters_per_second": 77.5,
+        "heading_degrees": 240.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.432, 37.834, 235.2]
+      },
+      "properties": {
+        "timestamp": 140,
+        "speed_meters_per_second": 80.0,
+        "heading_degrees": 255.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.433, 37.835, 240.0]
+      },
+      "properties": {
+        "timestamp": 145,
+        "speed_meters_per_second": 82.3,
+        "heading_degrees": 270.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.434, 37.836, 245.5]
+      },
+      "properties": {
+        "timestamp": 150,
+        "speed_meters_per_second": 85.0,
+        "heading_degrees": 285.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.435, 37.837, 250.0]
+      },
+      "properties": {
+        "timestamp": 155,
+        "speed_meters_per_second": 87.5,
+        "heading_degrees": 300.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.436, 37.838, 255.2]
+      },
+      "properties": {
+        "timestamp": 160,
+        "speed_meters_per_second": 90.0,
+        "heading_degrees": 315.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.437, 37.839, 260.0]
+      },
+      "properties": {
+        "timestamp": 165,
+        "speed_meters_per_second": 92.1,
+        "heading_degrees": 330.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.438, 37.840, 265.5]
+      },
+      "properties": {
+        "timestamp": 170,
+        "speed_meters_per_second": 95.0,
+        "heading_degrees": 345.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.439, 37.841, 270.0]
+      },
+      "properties": {
+        "timestamp": 175,
+        "speed_meters_per_second": 97.5,
+        "heading_degrees": 360.0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.440, 37.842, 275.2]
+      },
+      "properties": {
+        "timestamp": 180,
+        "speed_meters_per_second": 100.0,
+        "heading_degrees": 15.0
+      }
+    }
+  ]
+}
