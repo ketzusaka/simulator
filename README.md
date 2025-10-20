@@ -118,6 +118,32 @@ swift build
 - **Swift Testing**: Modern testing framework with `#expect` macros
 - **Mock Support**: `MockStrataNetworking` for comprehensive testing
 
+### Code Quality
+
+This project uses SwiftLint for code quality and style enforcement.
+
+#### SwiftLint Setup
+
+```bash
+# Install SwiftLint (if not already installed)
+brew install swiftlint
+
+# Run linting
+make lint
+
+# Auto-fix violations where possible
+make lint-fix
+```
+
+#### SwiftLint Configuration
+
+The project includes a `.swiftlint.yml` configuration that enforces:
+- **Modern Swift patterns**: Implicit returns, functional programming style
+- **Code style**: Consistent formatting, import sorting, spacing
+- **Best practices**: Access control, type inference, error handling
+
+SwiftLint diagnostics will appear in Cursor's Problems panel and guide AI-assisted code generation.
+
 ### Dependencies
 - `swift-argument-parser`: CLI argument parsing
 - `async-http-client`: HTTP client for API communication

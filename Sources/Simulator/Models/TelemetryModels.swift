@@ -11,10 +11,13 @@ struct TelemetrySample: Codable {
     let altitudeMeters: Double?
     let speedMetersPerSecond: Double?
     let headingDegrees: Double?
-    
+
     enum CodingKeys: String, CodingKey {
         case eventId = "event_id"
-        case ts, rid, lat, lon
+        case ts = "ts"
+        case rid = "rid"
+        case lat = "lat"
+        case lon = "lon"
         case altitudeMeters = "altitude_meters"
         case speedMetersPerSecond = "speed_meters_per_second"
         case headingDegrees = "heading_degrees"

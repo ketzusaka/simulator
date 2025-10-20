@@ -1,9 +1,8 @@
-import Testing
 import Foundation
 @testable import Simulator
+import Testing
 
 struct TelemetryModelsTests {
-    
     @Test func testTelemetrySampleCreation() throws {
         let telemetry = TelemetrySample(
             eventId: "test-event-id",
@@ -15,7 +14,7 @@ struct TelemetryModelsTests {
             speedMetersPerSecond: 11.9,
             headingDegrees: 210.0
         )
-        
+
         #expect(telemetry.eventId == "test-event-id")
         #expect(telemetry.ts == "2025-10-19T04:50:00Z")
         #expect(telemetry.rid == "RID-TEST-1")
@@ -25,7 +24,7 @@ struct TelemetryModelsTests {
         #expect(telemetry.speedMetersPerSecond == 11.9)
         #expect(telemetry.headingDegrees == 210.0)
     }
-    
+
     @Test func testTelemetrySampleWithNilValues() throws {
         let telemetry = TelemetrySample(
             eventId: nil,
@@ -37,7 +36,7 @@ struct TelemetryModelsTests {
             speedMetersPerSecond: nil,
             headingDegrees: nil
         )
-        
+
         #expect(telemetry.eventId == nil)
         #expect(telemetry.ts == "2025-10-19T04:50:00Z")
         #expect(telemetry.rid == "RID-TEST-1")
@@ -47,7 +46,7 @@ struct TelemetryModelsTests {
         #expect(telemetry.speedMetersPerSecond == nil)
         #expect(telemetry.headingDegrees == nil)
     }
-    
+
     @Test func testTelemetrySampleEncoding() throws {
         let telemetry = TelemetrySample(
             eventId: "test-event-id",
@@ -59,10 +58,10 @@ struct TelemetryModelsTests {
             speedMetersPerSecond: 11.9,
             headingDegrees: 210.0
         )
-        
+
         let data = try JSONEncoder().encode(telemetry)
         let decoded = try JSONDecoder().decode(TelemetrySample.self, from: data)
-        
+
         #expect(decoded.eventId == "test-event-id")
         #expect(decoded.ts == "2025-10-19T04:50:00Z")
         #expect(decoded.rid == "RID-TEST-1")
@@ -72,7 +71,7 @@ struct TelemetryModelsTests {
         #expect(decoded.speedMetersPerSecond == 11.9)
         #expect(decoded.headingDegrees == 210.0)
     }
-    
+
     @Test func testTelemetrySampleDecoding() throws {
         let json = """
         {
@@ -86,10 +85,10 @@ struct TelemetryModelsTests {
             "heading_degrees": 210.0
         }
         """
-        
+
         let data = json.data(using: .utf8)!
         let telemetry = try JSONDecoder().decode(TelemetrySample.self, from: data)
-        
+
         #expect(telemetry.eventId == "test-event-id")
         #expect(telemetry.ts == "2025-10-19T04:50:00Z")
         #expect(telemetry.rid == "RID-TEST-1")
@@ -99,7 +98,7 @@ struct TelemetryModelsTests {
         #expect(telemetry.speedMetersPerSecond == 11.9)
         #expect(telemetry.headingDegrees == 210.0)
     }
-    
+
     @Test func testTelemetrySampleProperties() throws {
         let telemetry = TelemetrySample(
             eventId: "test-event-id",
@@ -111,7 +110,7 @@ struct TelemetryModelsTests {
             speedMetersPerSecond: 11.9,
             headingDegrees: 210.0
         )
-        
+
         // Test individual properties
         #expect(telemetry.eventId == "test-event-id")
         #expect(telemetry.ts == "2025-10-19T04:50:00Z")

@@ -1,9 +1,8 @@
-import Testing
 import Foundation
 @testable import Simulator
+import Testing
 
 struct FlightWaypointTests {
-    
     @Test func testFlightWaypointCreationFromFeature() throws {
         let json = """
         {
@@ -19,11 +18,11 @@ struct FlightWaypointTests {
             }
         }
         """
-        
+
         let data = json.data(using: .utf8)!
         let feature = try JSONDecoder().decode(GeoJSONFeature.self, from: data)
         let waypoint = FlightWaypoint(from: feature)
-        
+
         #expect(waypoint.timestamp == 5)
         #expect(waypoint.longitude == -122.404)
         #expect(waypoint.latitude == 37.806)
@@ -31,7 +30,7 @@ struct FlightWaypointTests {
         #expect(waypoint.speed == 11.9)
         #expect(waypoint.heading == 210.0)
     }
-    
+
     @Test func testFlightWaypointDirectCreation() throws {
         let waypoint = FlightWaypoint(
             timestamp: 10,
@@ -41,7 +40,7 @@ struct FlightWaypointTests {
             speed: 11.9,
             heading: 210.0
         )
-        
+
         #expect(waypoint.timestamp == 10)
         #expect(waypoint.longitude == -122.404)
         #expect(waypoint.latitude == 37.806)
@@ -49,7 +48,7 @@ struct FlightWaypointTests {
         #expect(waypoint.speed == 11.9)
         #expect(waypoint.heading == 210.0)
     }
-    
+
     @Test func testFlightWaypointWithNilValues() throws {
         let waypoint = FlightWaypoint(
             timestamp: 15,
@@ -59,7 +58,7 @@ struct FlightWaypointTests {
             speed: nil,
             heading: nil
         )
-        
+
         #expect(waypoint.timestamp == 15)
         #expect(waypoint.longitude == -122.404)
         #expect(waypoint.latitude == 37.806)
@@ -67,7 +66,7 @@ struct FlightWaypointTests {
         #expect(waypoint.speed == nil)
         #expect(waypoint.heading == nil)
     }
-    
+
     @Test func testFlightWaypointCreationFromFeatureWithoutAltitude() throws {
         let json = """
         {
@@ -83,11 +82,11 @@ struct FlightWaypointTests {
             }
         }
         """
-        
+
         let data = json.data(using: .utf8)!
         let feature = try JSONDecoder().decode(GeoJSONFeature.self, from: data)
         let waypoint = FlightWaypoint(from: feature)
-        
+
         #expect(waypoint.timestamp == 5)
         #expect(waypoint.longitude == -122.404)
         #expect(waypoint.latitude == 37.806)
@@ -95,7 +94,7 @@ struct FlightWaypointTests {
         #expect(waypoint.speed == 11.9)
         #expect(waypoint.heading == 210.0)
     }
-    
+
     @Test func testFlightWaypointToTelemetrySample() throws {
         let waypoint = FlightWaypoint(
             timestamp: 10,
@@ -105,10 +104,10 @@ struct FlightWaypointTests {
             speed: 11.9,
             heading: 210.0
         )
-        
+
         let startTime = Date(timeIntervalSince1970: 1000000000) // Fixed timestamp
         let telemetry = waypoint.toTelemetrySample(rid: "RID-TEST-1", startTime: startTime)
-        
+
         #expect(telemetry.rid == "RID-TEST-1")
         #expect(telemetry.lat == 37.806)
         #expect(telemetry.lon == -122.404)
@@ -118,7 +117,7 @@ struct FlightWaypointTests {
         #expect(telemetry.eventId != nil)
         #expect(!telemetry.ts.isEmpty)
     }
-    
+
     @Test func testFlightWaypointToTelemetrySampleWithNilValues() throws {
         let waypoint = FlightWaypoint(
             timestamp: 10,
@@ -128,10 +127,10 @@ struct FlightWaypointTests {
             speed: nil,
             heading: nil
         )
-        
+
         let startTime = Date(timeIntervalSince1970: 1000000000) // Fixed timestamp
         let telemetry = waypoint.toTelemetrySample(rid: "RID-TEST-1", startTime: startTime)
-        
+
         #expect(telemetry.rid == "RID-TEST-1")
         #expect(telemetry.lat == 37.806)
         #expect(telemetry.lon == -122.404)

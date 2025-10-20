@@ -1,5 +1,5 @@
-import Foundation
 import ArgumentParser
+import Foundation
 
 @main
 struct SimulatorCLI: AsyncParsableCommand {
@@ -12,19 +12,19 @@ struct SimulatorCLI: AsyncParsableCommand {
         in the flight path data.
         """
     )
-    
+
     @Argument(help: "Path to the GeoJSON flight path file")
     var flightPath: String
-    
+
     @Option(name: .shortAndLong, help: "Vehicle API token for authentication")
     var apiToken: String
-    
+
     @Option(name: .shortAndLong, help: "Strata service URL (default: http://localhost:8081)")
     var strataURL: String = "http://localhost:8081"
-    
+
     @Option(name: .shortAndLong, help: "Remote ID for the simulated vehicle")
     var rid: String
-    
+
     func run() async throws {
         print("🚁 Skybus Flight Simulator")
         print("==========================")
@@ -32,20 +32,20 @@ struct SimulatorCLI: AsyncParsableCommand {
         print("Strata URL: \(strataURL)")
         print("Remote ID: \(rid)")
         print("")
-        
+
         // Validate inputs
         guard !apiToken.isEmpty else {
             throw ValidationError("API token cannot be empty")
         }
-        
+
         guard !rid.isEmpty else {
             throw ValidationError("Remote ID cannot be empty")
         }
-        
+
         // Initialize components
         let strataClient = StrataClient(baseURL: strataURL, apiToken: apiToken)
         let flightSimulator = FlightSimulator(strataNetworking: strataClient, rid: rid)
-        
+
         do {
             try await flightSimulator.simulateFlight(from: flightPath)
         } catch {

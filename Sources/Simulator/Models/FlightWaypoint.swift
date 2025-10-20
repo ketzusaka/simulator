@@ -9,7 +9,7 @@ struct FlightWaypoint {
     let altitude: Double?
     let speed: Double?
     let heading: Double?
-    
+
     init(from feature: GeoJSONFeature) {
         self.timestamp = feature.properties.timestamp
         self.longitude = feature.geometry.longitude
@@ -18,7 +18,7 @@ struct FlightWaypoint {
         self.speed = feature.properties.speedMetersPerSecond
         self.heading = feature.properties.headingDegrees
     }
-    
+
     init(timestamp: Double, longitude: Double, latitude: Double, altitude: Double?, speed: Double?, heading: Double?) {
         self.timestamp = timestamp
         self.longitude = longitude
@@ -27,11 +27,11 @@ struct FlightWaypoint {
         self.speed = speed
         self.heading = heading
     }
-    
+
     func toTelemetrySample(rid: String, startTime: Date) -> TelemetrySample {
         let currentTime = startTime.addingTimeInterval(timestamp)
         let iso8601Timestamp = ISO8601DateFormatter().string(from: currentTime)
-        
+
         return TelemetrySample(
             eventId: UUID().uuidString,
             ts: iso8601Timestamp,
