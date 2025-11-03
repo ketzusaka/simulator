@@ -1,11 +1,11 @@
 import Foundation
 
 actor FlightSimulator {
-    private let strataNetworking: any StrataNetworking
+    private let telemetryPublisher: any TelemetryPublisher
     private let rid: String
 
-    init(strataNetworking: any StrataNetworking, rid: String) {
-        self.strataNetworking = strataNetworking
+    init(telemetryPublisher: any TelemetryPublisher, rid: String) {
+        self.telemetryPublisher = telemetryPublisher
         self.rid = rid
     }
 
@@ -40,9 +40,9 @@ actor FlightSimulator {
             // Generate telemetry sample
             let telemetry = waypoint.toTelemetrySample(rid: rid, startTime: startTime)
 
-            // Send to Strata
+            // Send telemetry
             do {
-                try await strataNetworking.sendTelemetry(telemetry)
+                try await telemetryPublisher.sendTelemetry(telemetry)
                 let altitudeText = waypoint.altitude != nil ? "\(String(format: "%.1f", waypoint.altitude!))m" : "N/A"
                 print("📍 Waypoint \(index + 1)/\(waypoints.count): lat=\(String(format: "%.6f", waypoint.latitude)), lon=\(String(format: "%.6f", waypoint.longitude)), alt=\(altitudeText)")
             } catch {

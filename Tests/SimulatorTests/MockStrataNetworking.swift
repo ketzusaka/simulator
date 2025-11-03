@@ -1,7 +1,7 @@
 import Foundation
 @testable import Simulator
 
-actor MockStrataNetworking: StrataNetworking {
+actor MockTelemetryPublisher: TelemetryPublisher {
     private var _sendTelemetryInvocatedParameters: [TelemetrySample] = []
     private var _stubSendTelemetry: (TelemetrySample) async throws -> Void = { _ in }
 

@@ -5,10 +5,10 @@ import Foundation
 struct SimulatorCLI: AsyncParsableCommand {
     static let configuration = CommandConfiguration(
         commandName: "simulator",
-        abstract: "Simulate drone flights by sending telemetry data to Strata",
+        abstract: "Simulate drone flights by sending telemetry data via MQTT",
         discussion: """
-        The Simulator CLI reads GeoJSON flight path files and sends telemetry data
-        to the Strata service in real-time, respecting the relative timestamps
+        The Simulator CLI reads GeoJSON flight path files and publishes telemetry data
+        to an MQTT broker in real-time, respecting the relative timestamps
         in the flight path data.
         """
     )
@@ -19,8 +19,8 @@ struct SimulatorCLI: AsyncParsableCommand {
     @Option(name: .shortAndLong, help: "Vehicle API token for authentication")
     var apiToken: String
 
-    @Option(name: .shortAndLong, help: "Strata service URL (default: http://localhost:8081)")
-    var strataURL: String = "http://localhost:8081"
+    @Option(name: .shortAndLong, help: "MQTT broker URL (default: localhost:1883)")
+    var mqttBroker: String = "localhost:1883"
 
     @Option(name: .shortAndLong, help: "Remote ID for the simulated vehicle")
     var rid: String
@@ -29,7 +29,7 @@ struct SimulatorCLI: AsyncParsableCommand {
         print("🚁 Skybus Flight Simulator")
         print("==========================")
         print("Flight Path: \(flightPath)")
-        print("Strata URL: \(strataURL)")
+        print("MQTT Broker: \(mqttBroker)")
         print("Remote ID: \(rid)")
         print("")
 
@@ -43,8 +43,8 @@ struct SimulatorCLI: AsyncParsableCommand {
         }
 
         // Initialize components
-        let strataClient = StrataClient(baseURL: strataURL, apiToken: apiToken)
-        let flightSimulator = FlightSimulator(strataNetworking: strataClient, rid: rid)
+        let mqttClient = try await MQTTClient(broker: mqttBroker, rid: rid, apiToken: apiToken)
+        let flightSimulator = FlightSimulator(telemetryPublisher: mqttClient, rid: rid)
 
         do {
             try await flightSimulator.simulateFlight(from: flightPath)

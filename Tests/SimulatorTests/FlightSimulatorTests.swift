@@ -4,8 +4,8 @@ import Testing
 
 struct FlightSimulatorTests {
     @Test func testEmptyFlightPathError() async throws {
-        let mockNetworking = MockStrataNetworking()
-        let simulator = FlightSimulator(strataNetworking: mockNetworking, rid: "RID-TEST-1")
+        let mockNetworking = MockTelemetryPublisher()
+        let simulator = FlightSimulator(telemetryPublisher: mockNetworking, rid: "RID-TEST-1")
 
         // Create a temporary empty GeoJSON file
         let tempDir = FileManager.default.temporaryDirectory
@@ -30,8 +30,8 @@ struct FlightSimulatorTests {
     }
 
     @Test func testFileNotFoundError() async throws {
-        let mockNetworking = MockStrataNetworking()
-        let simulator = FlightSimulator(strataNetworking: mockNetworking, rid: "RID-TEST-1")
+        let mockNetworking = MockTelemetryPublisher()
+        let simulator = FlightSimulator(telemetryPublisher: mockNetworking, rid: "RID-TEST-1")
 
         await #expect(throws: FlightSimulatorError.fileNotFound("/nonexistent/path.geojson")) {
             try await simulator.simulateFlight(from: "/nonexistent/path.geojson")
@@ -39,8 +39,8 @@ struct FlightSimulatorTests {
     }
 
     @Test func testSuccessfulFlightSimulation() async throws {
-        let mockNetworking = MockStrataNetworking()
-        let simulator = FlightSimulator(strataNetworking: mockNetworking, rid: "RID-TEST-1")
+        let mockNetworking = MockTelemetryPublisher()
+        let simulator = FlightSimulator(telemetryPublisher: mockNetworking, rid: "RID-TEST-1")
 
         // Create a temporary GeoJSON file with one waypoint
         let tempDir = FileManager.default.temporaryDirectory
@@ -82,12 +82,12 @@ struct FlightSimulatorTests {
     }
 
     @Test func testNetworkFailure() async throws {
-        let mockNetworking = MockStrataNetworking()
+        let mockNetworking = MockTelemetryPublisher()
         await mockNetworking.setStubSendTelemetry { _ in
-            throw StrataError.requestFailed(status: 500, message: "Network error")
+            throw MQTTError.publishFailed(message: "Network error")
         }
 
-        let simulator = FlightSimulator(strataNetworking: mockNetworking, rid: "RID-TEST-1")
+        let simulator = FlightSimulator(telemetryPublisher: mockNetworking, rid: "RID-TEST-1")
 
         // Create a temporary GeoJSON file
         let tempDir = FileManager.default.temporaryDirectory
@@ -119,7 +119,7 @@ struct FlightSimulatorTests {
         try testJson.write(to: tempFile, atomically: true, encoding: .utf8)
         defer { try? FileManager.default.removeItem(at: tempFile) }
 
-        await #expect(throws: StrataError.self) {
+        await #expect(throws: MQTTError.self) {
             try await simulator.simulateFlight(from: tempFile.path)
         }
     }

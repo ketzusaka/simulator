@@ -1,5 +1,5 @@
 import Foundation
 
-protocol StrataNetworking: Actor {
+protocol TelemetryPublisher: Actor {
     func sendTelemetry(_ telemetry: TelemetrySample) async throws
 }
