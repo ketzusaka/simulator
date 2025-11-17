@@ -43,14 +43,30 @@ struct SimulatorCLI: AsyncParsableCommand {
         }
 
         // Initialize components
+        print("Initializing MQTT client...")
         let mqttClient = try await MQTTClient(broker: mqttBroker, rid: rid, apiToken: apiToken)
+        print("🔌 Connecting to MQTT broker…")
+        do {
+            try await mqttClient.connect()
+            print("✅ MQTT client connected")
+        } catch {
+            print("❌ MQTT connection failed:", String(reflecting: error))
+            await mqttClient.shutdown()
+            throw ExitCode.failure
+        }
+
+        print("MQTT client initialized. Initializing flight simulator...")
         let flightSimulator = FlightSimulator(telemetryPublisher: mqttClient, rid: rid)
+        print("Flight simulator initialized")
 
         do {
+            print("Simulating flight...")
             try await flightSimulator.simulateFlight(from: flightPath)
+            print("Flight simulation completed")
         } catch {
             print("❌ Simulation failed: \(error.localizedDescription)")
             throw ExitCode.failure
         }
+        await mqttClient.shutdown()
     }
 }
